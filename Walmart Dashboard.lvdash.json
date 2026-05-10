@@ -1,0 +1,206 @@
+{
+  "datasets": [
+    {
+      "name": "2da77986",
+      "displayName": "walmart_dataset",
+      "queryLines": [
+        "SELECT * FROM workspace.default.walmart_dataset"
+      ]
+    },
+    {
+      "name": "a90fadda",
+      "displayName": "gold_monthly_sales",
+      "queryLines": [
+        "SELECT * FROM workspace.default.gold_monthly_sales"
+      ]
+    },
+    {
+      "name": "41d5f255",
+      "displayName": "gold_sales_by_store",
+      "queryLines": [
+        "SELECT * FROM workspace.default.gold_sales_by_store"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "deac3c50",
+      "displayName": "Dashboard",
+      "layout": [
+        {
+          "widget": {
+            "name": "1d8f435e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2da77986",
+                  "fields": [
+                    {
+                      "name": "Holiday_Flag",
+                      "expression": "`Holiday_Flag`"
+                    },
+                    {
+                      "name": "Weekly_Sales",
+                      "expression": "`Weekly_Sales`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Holiday_Flag",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "Weekly_Sales",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 1,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "6b477fb2",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "a90fadda",
+                  "fields": [
+                    {
+                      "name": "Month",
+                      "expression": "`Month`"
+                    },
+                    {
+                      "name": "Monthly_Sales",
+                      "expression": "`Monthly_Sales`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "forecast-line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Month",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "original": {
+                    "fieldName": "Monthly_Sales"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 6,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "71335fe8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "41d5f255",
+                  "fields": [
+                    {
+                      "name": "Store",
+                      "expression": "`Store`"
+                    },
+                    {
+                      "name": "Total_Sales",
+                      "expression": "`Total_Sales`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Sales Trend by Store",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Store",
+                  "displayName": "Store",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "Total_Sales",
+                  "displayName": "Total Sales",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "Store",
+                  "displayName": "Store",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 1,
+            "y": 3,
+            "width": 11,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "870ab81f",
+      "displayName": "Global Filters",
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
